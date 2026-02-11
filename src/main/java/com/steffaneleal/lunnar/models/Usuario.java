@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tbl_usuarios")
@@ -18,7 +19,7 @@ import java.util.List;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id_usuario;
+    private UUID id_usuario;
 
     private String nome;
     private String email;
