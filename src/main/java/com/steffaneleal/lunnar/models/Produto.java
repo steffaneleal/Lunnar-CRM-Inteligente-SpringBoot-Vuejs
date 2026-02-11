@@ -1,18 +1,20 @@
-package com.steffaneleal.lunnar.controllers;
+package com.steffaneleal.lunnar.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
-import java.util.List;
 
 @Entity
 @Table(name = "tbl_produto")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Produto {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id_produto;
 
     private String nome;
@@ -20,6 +22,7 @@ public class Produto {
     private BigDecimal preco;
     private Integer qtd_estoque;
 
-    @OneToMany
-    List<Categoria> id_categoria;
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
 }

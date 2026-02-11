@@ -1,17 +1,24 @@
-package com.steffaneleal.lunnar.controllers;
+package com.steffaneleal.lunnar.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 import java.util.List;
 
 @Entity
 @Table(name = "tbl_usuarios")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
     @Id
-    @GeneratedValue
-    private UUID id_usuario;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id_usuario;
 
     private String nome;
     private String email;
@@ -26,5 +33,5 @@ public class Usuario {
     private LocalDateTime criadoEm = LocalDateTime.now();
 
     @OneToMany(mappedBy = "usuario")
-    private List<Pedidos> id_pedido;
+    private List<Pedido> id_pedido;
 }
