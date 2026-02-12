@@ -1,3 +1,4 @@
+// Entidade que representa as categorias dos produtos no sistema
 package com.steffaneleal.lunnar.models;
 
 
@@ -11,19 +12,19 @@ import java.util.UUID;
 import java.util.List;
 
 @Entity
-@Table(name = "tbl_categoria")
+@Table(name = "tb_category")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Categoria {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id_categoria;
+    private UUID id;
 
-    private String nome;
-    private String descricao;
+    private String name;
+    private String description;
 
-    @OneToMany(mappedBy = "categoria")
-    private List<Produto> id_produto;
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }
