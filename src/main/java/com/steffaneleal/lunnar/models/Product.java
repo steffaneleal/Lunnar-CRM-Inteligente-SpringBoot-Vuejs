@@ -7,22 +7,22 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tbl_produto")
+@Table(name = "tb_product")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Produto {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id_produto;
+    private UUID id;
 
-    private String nome;
-    private String descricao;
-    private BigDecimal preco;
-    private Integer qtd_estoque;
+    private String name;
+    private String description;
+    private BigDecimal price;
+    private Integer stockQuantity;
 
     @ManyToOne
-    @JoinColumn(name = "id_categoria")
-    private Categoria categoria;
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

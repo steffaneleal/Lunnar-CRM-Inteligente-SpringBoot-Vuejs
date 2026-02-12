@@ -12,28 +12,28 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tbl_pedido")
+@Table(name = "tb_order")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pedido {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id_pedido;
+    private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @Column(name = "preco_total")
-    private BigDecimal precoTotal;
+    @Column(name = "total_price")
+    private BigDecimal totalPrice;
 
     private String status;
 
-    @Column(name = "criado_em")
-    private LocalDateTime criadoEm = LocalDateTime.now();
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
-    private List<ItemPedido> itens;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) // se você salvar ou remover o pedido, todos os itens vão junto
+    private List<OrderItem> items;
 }
