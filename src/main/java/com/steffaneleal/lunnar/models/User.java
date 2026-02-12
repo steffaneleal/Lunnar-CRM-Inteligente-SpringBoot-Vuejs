@@ -1,3 +1,4 @@
+// Entidade que representa os usuários
 package com.steffaneleal.lunnar.models;
 
 import jakarta.persistence.*;

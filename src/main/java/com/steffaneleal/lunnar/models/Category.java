@@ -1,3 +1,4 @@
+// Entidade que representa as categorias dos produtos no sistema
 package com.steffaneleal.lunnar.models;
 
 
