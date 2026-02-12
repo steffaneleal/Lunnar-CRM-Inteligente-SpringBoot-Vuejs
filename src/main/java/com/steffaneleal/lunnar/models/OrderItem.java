@@ -10,26 +10,26 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tbl_item_pedido")
+@Table(name = "tb_order_item")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemPedido {
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id_item_pedido;
+    private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "id_pedido")
-    private Pedido pedido;
+    @JoinColumn(name = "order_id")
+    private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "id_produto")
-    private Produto produto;
+    @JoinColumn(name = "product_id")
+    private Product product;
 
-    private Integer quantidade;
+    private Integer quantity;
 
-    @Column(name = "preco_unitario")
-    private BigDecimal precoUnitario;
+    @Column(name = "unit_price")
+    private BigDecimal unitPrice;
 }
