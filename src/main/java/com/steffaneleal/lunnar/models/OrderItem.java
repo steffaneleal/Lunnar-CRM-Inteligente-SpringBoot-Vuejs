@@ -1,3 +1,4 @@
+// Entidade que representa os itens dos pedidos
 package com.steffaneleal.lunnar.models;
 
 import jakarta.persistence.*;
