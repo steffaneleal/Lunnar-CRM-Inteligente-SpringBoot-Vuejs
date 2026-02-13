@@ -28,6 +28,9 @@ public class User {
     private String role;
     private String provider;
 
+    @Enumerated(EnumType.STRING) //
+    private UserRole role;
+
     @Column(name = "provider_id")
     private Integer providerId;
 
