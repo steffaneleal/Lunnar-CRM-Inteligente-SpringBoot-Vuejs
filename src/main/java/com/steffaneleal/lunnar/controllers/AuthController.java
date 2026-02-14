@@ -30,8 +30,8 @@ public class AuthController {
     public ResponseEntity login(@RequestBody LoginRequestDTO body ) {
         User user = this.repository.findByEmail(body.email()).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-        // verificação da senha
-        if (passwordEncoder.matches(user.getPassword(), body.password())) {
+        // Verificação da senha
+        if (passwordEncoder.matches(body.password(), user.getPassword())) {
             String token = this.tokenService.generateToken(user);
 
             return  ResponseEntity.ok(new ResponseDTO(user.getName(), token)); // verificar no frontend quais são as respostas esperadas
@@ -57,6 +57,8 @@ public class AuthController {
             newUser.setProvider(body.provider());
             newUser.setBirthdate(body.birthdate());
             newUser.setPhoneNumber(body.phoneNumber());
+            newUser.setRole(com.steffaneleal.lunnar.models.UserRole.ADMIN);
+            
             this.repository.save(newUser);
 
             // Geração do token

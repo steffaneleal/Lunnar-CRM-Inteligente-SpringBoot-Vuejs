@@ -3,7 +3,6 @@ package com.steffaneleal.lunnar.infra.security;
 import com.steffaneleal.lunnar.models.User;
 import com.steffaneleal.lunnar.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
-import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
