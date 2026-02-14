@@ -32,7 +32,7 @@ public class TokenService {
 
             return token;
         } catch (JWTCreationException exception) {
-            throw new RuntimeException("Error while authenticating");
+            throw new RuntimeException("Erro durante a autenticação");
         }
     }
 
